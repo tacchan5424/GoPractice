@@ -2,8 +2,7 @@ package server
 
 import (
     "github.com/gin-gonic/gin"
-
-    "github.com/asuforce/gin-gorm-tutorial/controller"
+    "../controller"
 )
 
 // Init is initialize server
@@ -14,5 +13,9 @@ func Init() {
 
 func router() *gin.Engine {
     r := gin.Default()
+
+    u := r.Group("")
+    u.GET("", controller.SearchUserInfo)
+
     return r
 }
